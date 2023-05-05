@@ -233,13 +233,13 @@ ES_t DIO_ES_tTOGPin(DIO_U8_Port_Type copy_u8_PortId, DIO_U8_Pin_Type copy_u8_Pin
 		return ES_NOT_OK;
 	}
 	if(copy_u8_PortId == DIO_U8_PORT_A){
-		TOG_BIT(PINA,copy_u8_PinId);
+		TOG_BIT(PORTA,copy_u8_PinId);
 	}else if(copy_u8_PortId == DIO_U8_PORT_B){
-		TOG_BIT(PINB,copy_u8_PinId);
+		TOG_BIT(PORTB,copy_u8_PinId);
 	}else if(copy_u8_PortId == DIO_U8_PORT_C){
-		TOG_BIT(PINC,copy_u8_PinId);
+		TOG_BIT(PORTC,copy_u8_PinId);
 	}else if(copy_u8_PortId == DIO_U8_PORT_D){
-		TOG_BIT(PIND,copy_u8_PinId);
+		TOG_BIT(PORTD,copy_u8_PinId);
 	}else{
 		return ES_NOT_OK;
 	}

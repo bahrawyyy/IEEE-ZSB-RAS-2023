@@ -28,6 +28,7 @@ int main()
 	DIO_ES_tSetPinDirection(DIO_U8_PORT_B, DIO_U8_PIN_3, OUTPUT);
 	DIO_ES_tSetPinDirection(DIO_U8_PORT_A, DIO_U8_PIN_0, INPUT);
 	ADC_init();
+	Servo_Init();
 
 
 	TIMER0_Config_t Timer0Cfg = {TIMER0_PHASE_CORRECT_MODE, TIMER0_PRESCALAR_64, OC0_NON_INVERTING, TOIE0_DISABLE, OCIE0_DISABLE};
@@ -56,6 +57,14 @@ int main()
 		Lcd_ES_tsendString("   ");
 		LCD_ES_tGoTo(0, 12);
 		Lcd_ES_tdisplayNum(PotValue);
+
+		PotValue = ((PotValue / 100.0) * 180) - 90;
+		LCD_ES_tGoTo(1, 12);
+		Lcd_ES_tsendString("   ");
+		LCD_ES_tGoTo(1, 12);
+		Lcd_ES_tdisplayNum(PotValue);
+
+		Servo_Turn(PotValue);
 
 
 		_delay_ms(1000);

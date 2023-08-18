@@ -50,7 +50,7 @@ void Servo_Turn(int angle)
 		angle = 90;
 
 	// Calculate the pulse width based on the desired angle
-	u16 pulse_width_microseconds = 1500 + ((angle / 90) * 500);
+	u16 pulse_width_microseconds = 1500 + ((angle / 180.0) * 1000);
 	u16 pulse_width_counts = pulse_width_microseconds / 4; // Timer 1 resolution prescaler is 64
 	OCR1A = pulse_width_counts - 1;
 
